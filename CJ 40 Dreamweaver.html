@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Audio Listening Challenge</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .feedback {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🎧 What would be a great thing to offer a customer in this situation?</h2>
+  <button onclick="playAudio()">🔊 Play Audio</button>
+
+  <div>
+    <button onclick="checkAnswer('U-Box')">U-Box</button>
+    <button onclick="checkAnswer('Moving Help')">Moving Help</button>
+    <button onclick="checkAnswer('Both')">Both</button>
+  </div>
+
+  <div class="feedback" id="feedback"></div>
+
+  <!-- Replace with your own audio file -->
+  <audio id="audio" src="audio/ScenarioAudio1.mp3"></audio>
+
+  <script>
+    const correctAnswer = "Both"; // Change this to match the audio
+
+    function playAudio() {
+      document.getElementById("audio").play();
+    }
+
+    function checkAnswer(choice) {
+      const feedback = document.getElementById("feedback");
+      if (choice === correctAnswer) {
+        feedback.textContent = "✅ Correct! Great listening.";
+        feedback.style.color = "green";
+      } else {
+        feedback.textContent = "❌ Oops! Try again.";
+        feedback.style.color = "red";
+      }
+    }
+  </script>
+
+</body>
+</html>
